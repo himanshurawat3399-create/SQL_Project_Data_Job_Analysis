@@ -23,6 +23,7 @@ This project uses job posting data from the global technology job market to expl
 3. What skills are most in demand for data analysts?
 4. Which skills are associated with higher salaries?
 5. What are the most optimal skills to learn?
+6. Which companies offer the highest average salary for remote Data Analyst positions?
 
 # Tools I Used
 
@@ -222,6 +223,50 @@ Here's a breakdown of the most optimal skills for Data Analysts in 2023:
 - **Business Intelligence and Visualization Tools:** Tableau and Looker, with demand counts of 230 and 49 respectively, and average salaries around $99,288 and $103,795, highlight the critical role of data visualization and business intelligence in deriving actionable insights from data.
 - **Database Technologies:** The demand for skills in traditional and NoSQL database (Oracle, SQL Server, NoSQL) with average salaries ranging from $97,786 to $104,534, reflects the enduring need for data storage, retrieval, and management expertise.
 
+### 6. Top 10 Companies Offering the Highest Average Salary for Remote Data Analyst Positions
+
+#### 🎯Objective
+
+Identify the top 10 companies that offer the highest average salary for Data Analyst positions where the job location is remote (Anywhere). Only companies with at least 3 job postings are considered to ensure data reliability.
+
+```sql
+SELECT
+    company.name AS company_name,
+    ROUND(AVG(job_postings.salary_year_avg),0) AS average_salary,
+    COUNT(*) AS total_jobs
+FROM
+    job_postings_fact AS job_postings
+        INNER JOIN company_dim AS company
+            ON job_postings.company_id = company.company_id
+WHERE
+    job_postings.job_title_short = 'Data Analyst' AND
+    job_postings.job_location = 'Anywhere' AND
+    job_postings.salary_year_avg IS NOT NULL
+GROUP BY
+    company.name
+HAVING
+    COUNT(*) >= 3
+ORDER BY
+    average_salary DESC
+LIMIT 10;
+```
+
+#### 📊Result
+
+![top_companies_highest_salary](assets/Top_company_highest_pay.png)
+
+*Table of the Top 10 Companies Offering the Highest Average Salary for Remote Data Analys*
+
+#### 📊Visualization
+
+![Visualization_top_companies_highest_salary](assets/Visualization_top_companies_highest_salary.png)
+
+#### 💡Key Insights
+- Uber offers the highest average salaryfor remote Data Analyst positions at $140,900.
+- Edward Jones and Robert Half follow closely, with average salaries above $122k.
+- Most of the top-paying companies have a moderate numbber of job postings (3 to 12), indicating consistent demand.
+- This analysis includes only companies with at least 3 remote job postings to ensure reliability of the average salary.
+
 # What I Learned
 
 🚀 This project marked an important milestone in my SQL learning journey and gave me the opportunity to apply theoretical concepts to a real-world dataset.
@@ -243,19 +288,25 @@ Throughout this project, I strengthened my understanding of several core SQL con
 
 From this analysis, several key insights emerged:
 
-1. #### 💰 High Salary Potential in Data Analytics
-   Remote Data Analyst roles can offer exceptionally high salaries, with some positions exceeding $200,000 per year and top roles reaching $650,000 annually.
-2. #### 📊 SQL Remains a Core Skill
-   SQL consistently appeared among the most requested skills across job postings, highlighting its importance for aspiring Data Analysts.
-3. #### 🚀 Technical Skills Increase Market Value
-   Skills such as Python, Tableau, Power BI, Snowflake, and cloud technologies were frequently associated with higher-paying opportunities.
-4. #### 🏢 Demand Exists Across Multiple Industries\*\*
-   Companies from various sectors, including technology, finance, healthcare, and marketing, actively seek data professionals to support data-driven decision-making.
-5. #### 🎯 Specialized Skills Can Lead to Better Opportunities\*\*
-   Professionals with expertise in advanced analytics, data visualization, cloud platforms, and data engineering tools often have access to higher-paying roles.
+1. #### 💰 Remote Data Analyst roles offfer strong earning potential
+   Top-paying remote Data Analyst positions offer salaries well above industry averages, with some roles exceeding $650,000 annually.
+2. #### 📊 SQL remains one of the most valuable skills for Data Analysts
+   SQL consistently appeared among the most requested skills across job postings, reinforcing its importance in the analystics field.
+3. #### 🚀 Technical skills can significantly increase salary potential
+   Skills such as Python, Tableau, Power BI, Snowflake, AWS, and other data technologies were frequently associated with higher-paying opportunities.
+4. #### 🏢 High-paying opportunities exist across multiple industries
+   Technology, finance, healthcare, recruitment, and consulting companies all demonstrated strong demand for Data Analysts, highlighting the versatility of data analytics skills.
+5. #### 🎯 Certain companies consistently offer competitive compensation
+   Companies such as Uber, Edward Jones, and Robert Half ranked among the highest-paying employers for remote Data Analyst positions, indicating strong investment in data-driven decision-making.
+6. #### 📈The most optimal skills balance both demand and salary potential
+    The analysis revealed that some skills not only appear frequently in job postings but are also associated with higher average salaries, making them valuable investments for aspiring Data Analysts.
 
 ### Closing Thoughts
 
-This project provided valuable hands-on experience in applying SQL to a real-world dataset and strengthened my understanding of how data can be used to answer business questions. Beyond improving my technical SQL skills, the project helped me develop an analytical mindset by transforming raw data into meaningful insights.
+This project provided valuable hands-on experience in applying SQL to a real-world dataset and strengthened my understanding of how data can be used to answer business questions. Throughout the analysis, I practiced data exploration, filtering, aggregation, joins, subqueries, CTEs, and other core SQL techniques to uncover meaningful insights from job market data.
 
-As my first SQL portfolio project, it marks an important step in my journey toward becoming a Data Analyst. Moving forward, I plan to continue building projects, expanding my knowledge of data visualization and analytics tools, and developing the skills needed to solve increasingly complex business problems using data.
+Beyond improving my technical SQL skills, this project helped me develop a stronger analytical mindset by transforming raw data into actionable insights regarding salaries, skill demand, and career opportunities within the Data Analytics field.
+
+As my first SQL portfolio project, this repository represents an important milestone in my journey toward becoming a Data Analyst. I plan to continue enhancing this project by adding new analyses, visualizations, and insights as I expand my SQL and data analytics knowledge.
+
+🔄 Project Status: This project is actively maintained and will continue to evolve as I learn new concepts and explore additional business questions using data.
