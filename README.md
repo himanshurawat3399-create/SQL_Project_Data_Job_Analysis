@@ -303,10 +303,8 @@ From this analysis, several key insights emerged:
 
 ### Closing Thoughts
 
-This project provided valuable hands-on experience in applying SQL to a real-world dataset and strengthened my understanding of how data can be used to answer business questions. Throughout the analysis, I practiced data exploration, filtering, aggregation, joins, subqueries, CTEs, and other core SQL techniques to uncover meaningful insights from job market data.
+This project provided valuable hands-on experience in applying SQL to real-world job market data and strengthened my understanding of how data can be used to answer meaningful business questions. Through this analysis, I practiced essential SQL concepts including joins, aggregations, filtering, grouping, subqueries, and Common Table Expressions (CTEs) while working with a large dataset of job postings.
 
-Beyond improving my technical SQL skills, this project helped me develop a stronger analytical mindset by transforming raw data into actionable insights regarding salaries, skill demand, and career opportunities within the Data Analytics field.
+By exploring salary trends, in-demand skills, hiring patterns, and company-level compensation data, I gained practical experience in transforming raw data into actionable insights. This project also reinforced the importance of combining technical SQL skills with analytical thinking to support data-driven decision-making.
 
-As my first SQL portfolio project, this repository represents an important milestone in my journey toward becoming a Data Analyst. I plan to continue enhancing this project by adding new analyses, visualizations, and insights as I expand my SQL and data analytics knowledge.
-
-🔄 Project Status: This project is actively maintained and will continue to evolve as I learn new concepts and explore additional business questions using data.
+As my first SQL portfolio project, it represents an important milestone in my journey toward becoming a Data Analyst. The experience gained from building this project has strengthened my foundation in SQL and prepared me for more advanced analytics and visualization projects in the future.
